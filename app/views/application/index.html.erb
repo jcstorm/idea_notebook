@@ -1,0 +1,36 @@
+<div class = "container" style="background-color: gray">
+  <div class="jumbotron" style="background-image:url('http://rappingmanual.com/wp-content/uploads/2013/01/BrightIdea.jpeg');background-repeat:no-repeat;background-size:cover;">
+    <h1 style="height:100%;">Idea Notebook</h1>
+  </div>
+  
+<div class="panel panel-default">
+  <div class="panel-body">
+    <h3>New Idea</h3>
+<form action="/create_idea">
+  <input type="text" name="title" placeholder="Title" class= "form-control">
+  <input type="text" name="description" placeholder="Description" class= "form-control">
+  
+  <input type="submit" class= "btn btn-default">
+  <a href="/ideas">cancel</a>
+  <p><%= @message %></p>
+</form>
+  
+  </div>
+</div>      
+<div>
+  <h3 style="color: #FFF">Current Ideas</h3>
+<ul class="list-group">
+  <% @idea.each do |idea| %>
+
+  <li class="list-group-item">
+    <strong><%= idea.title %></strong>
+    <a href="/ideas/<%= idea.id %>">show</a> | 
+    <a href="/ideas/<%= idea.id %>/edit">edit</a> | 
+    <a href="/ideas/<%= idea.id %>/destroy">destroy</a>
+  </li>
+
+  <% end %>
+  
+  </ul>
+  </div>
+</div>
